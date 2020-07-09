@@ -7,16 +7,13 @@ time_of_day_t since_midnight(time_t t) {
 	return tm->tm_hour * 3600 + tm->tm_min * 60 + tm->tm_sec;
 }
 
-char *time_string(time_t t, char *buf) {
-	struct tm *tm = localtime(&t);
-	strftime(buf, TIME_STRING_SIZE, "%F %T", tm);
+char *format_time(time_t t, const char *fmt, char *buf, int len) {
+	strftime(buf, len, fmt, localtime(&t));
 	return buf;
 }
 
-char *short_time(time_t t, char *buf) {
-	struct tm *tm = localtime(&t);
-	strftime(buf, SHORT_TIME_SIZE, "%T", tm);
-	return buf;
+char *time_string(time_t t, char *buf) {
+	return format_time(t, "%F %T", buf, TIME_STRING_SIZE);
 }
 
 char *duration_string(int seconds, char *buf) {
@@ -36,6 +33,11 @@ char *duration_string(int seconds, char *buf) {
 }
 
 char *insulin_string(insulin_t ins, char *buf) {
-	sprintf(buf, "%d.%03d U", ins / 1000, ins % 1000);
+	char *p = buf;
+	if (ins < 0) {
+		*p++ = '-';
+		ins = -ins;
+	}
+	sprintf(p, "%d.%03d U", ins / 1000, ins % 1000);
 	return buf;
 }
