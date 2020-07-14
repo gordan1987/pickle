@@ -18,3 +18,4 @@ void app_main(void) {
 	ESP_LOGD(TAG, "frequency set to %d Hz", read_frequency());
 	gnarl_init();
 }
+

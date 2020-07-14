@@ -17,10 +17,10 @@
 //#include "led.h"
 
 #define MAX_DATA		150
-#define DEFAULT_NAME		"PCKL3"
+#define DEFAULT_NAME		"Pickle-6"
 
 #define CUSTOM_NAME_SIZE	30
-#define STORAGE_NAMESPACE	"PCKL3"
+#define STORAGE_NAMESPACE	"Pickle-6"
 
 static uint8_t custom_name[CUSTOM_NAME_SIZE];
 
