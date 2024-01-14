@@ -5,7 +5,7 @@
 #include "gnarl.h"
 #include "rfm95.h"
 
-#define PUMP_FREQUENCY 868000000
+#define PUMP_FREQUENCY 868350000
 
 void app_main(void) {
 	ESP_LOGD(TAG, "enable watchdog with a timeout of %d seconds", WDT_TIMEOUT_SECONDS);
