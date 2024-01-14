@@ -9,7 +9,7 @@
 #define MILLISECONDS	1000
 #define SECONDS		1000000
 
-#define WDT_TIMEOUT_SECONDS (6*60)
+#define WDT_TIMEOUT_SECONDS (5*60)
 
 #define MHz		1000000
 
